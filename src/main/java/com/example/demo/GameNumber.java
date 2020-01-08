@@ -11,7 +11,7 @@ public class GameNumber {
 
     // @Override
     public String toString(){
-        if(rowNumber % 3 == 0){
+        if(checkNumber()){
             return "fizz";
         }
         
@@ -20,6 +20,10 @@ public class GameNumber {
         }
 
         return String.valueOf(this.rowNumber);
+    }
+
+    private boolean checkNumber() {
+        return rowNumber % 3 == 0;
     }
 
     

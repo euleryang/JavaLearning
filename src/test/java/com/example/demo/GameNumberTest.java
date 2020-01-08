@@ -11,9 +11,15 @@ public class GameNumberTest {
     @Test
     public void should_show_raw_number_for_nomal_number(){
                
+
         assertThat(new GameNumber(1).toString(), is("1"));     
         assertThat(new GameNumber(2).toString(), is("2"));
     }
+
+    private void add2(int a, int b) {
+        int sum =a + b;
+    }
+
 
     @Test
     public void should_show_fizz_if_raw_number_divided_by_3(){
