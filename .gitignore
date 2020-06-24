@@ -52,7 +52,7 @@ target/
 build/
 
 ### VS Code ###
-.vscode/
+# .vscode/
 
 
 # Created by https://www.gitignore.io/api/maven
