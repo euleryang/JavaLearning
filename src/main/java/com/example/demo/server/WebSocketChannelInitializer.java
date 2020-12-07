@@ -34,8 +34,15 @@ public class WebSocketChannelInitializer extends ChannelInitializer<SocketChanne
         channelPipeline.addLast(new HttpObjectAggregator(1024*24));//指定缓存大小
         /* 固定写法部分*/
 
+        // ====================== 以下是支持httpWebsocket ======================
         //指定接收请求的路由
         //指定必须使用ws为结尾的url才能访问
+        /**
+         * websocket 服务器处理的协议，用于指定给客户端连接访问的路由 : /ws
+         * 本handler会帮你处理一些繁重的复杂的事
+         * 会帮你处理握手动作： handshaking（close, ping, pong） ping + pong = 心跳
+         * 对于websocket来讲，都是以frames进行传输的，不同的数据类型对应的frames也不同
+         */
         channelPipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
         //添加自定义的handler进行业务处理
